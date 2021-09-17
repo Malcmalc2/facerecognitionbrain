@@ -4,7 +4,13 @@ import Logo from './components/Logo/Logo';
 import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Particles from 'react-particles-js';
+import Clarifai from 'clarifai';
 import './App.css';
+
+
+const app = new Clarifai.App({
+  apiKey: '006d7575d0e849d79c38d198645a2083'
+});
 
 const particlesOptions = {
   particles: {
@@ -27,7 +33,14 @@ class App extends Component {
   }
 
   onInputChange = (event) => {
-    console.log(event.target.value);
+    app.models.predict("006d7575d0e849d79c38d198645a2083", "",
+      function(response) {
+        //do somet
+      },
+      function(err) {
+        //error
+      }
+    )
   }
 
   onButtonSubmit = () => {
