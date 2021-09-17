@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   onInputChange = (event) => {
-    app.models.predict("006d7575d0e849d79c38d198645a2083", "",
+    app.models.predict("006d7575d0e849d79c38d198645a2083", "https://samples.clarifai.com/face-det.jpg").then(
       function(response) {
         //do somet
       },
